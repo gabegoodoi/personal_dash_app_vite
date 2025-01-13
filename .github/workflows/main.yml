@@ -27,4 +27,41 @@ jobs:
         echo "Working Directory: $(pwd)"
         echo "Contents of Working Directory: $(ls -1)"
         echo "Contents of node_modules: $(ls -1 node_modules)"
+  test:
+    needs: build
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: check out code
+        uses: actions/checkout@v2
+
+      - name: use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+  
+      - name: Install dependencies
+        run: npm install
+  
+      - name: Run Tests
+        run: npm test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install
+      - name: install Netlify CLI
+        run: npm install -g netlify-cli
+      - name: Pull Netlify Environment Information
+        run: netlify pull --yes --environment-preview --token=${{ secrets.NETLIFY_TOKEN }}
+      - name: Build Project Artifacts
+        run: netlify build --token=${{ secrets.NETLIFY_TOKEN }}
+      - name: Deploy Project Artifacts to Netlify
+        run: netlify deploy --prebuilt --token=${{ secrets.NETLIFY_TOKEN }}
