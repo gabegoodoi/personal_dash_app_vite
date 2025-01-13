@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Location: React.FC = () => {
     const [location, setLocation] = useState<string | null>(null);

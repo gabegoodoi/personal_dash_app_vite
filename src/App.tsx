@@ -1,4 +1,5 @@
-import { Route, Routes } from 'react-router-dom'; 
+import { Route, Routes, Router } from 'react-router-dom'; 
+import React from 'react';
 import Homepage from './Components/Homepage.tsx';
 import AlbumDetails from './Components/AlbumDetails.tsx';
 import './App.css';
