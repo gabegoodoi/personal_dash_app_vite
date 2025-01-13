@@ -17,6 +17,7 @@ const AlbumDetails: React.FC = () => {
 
   return (
     <Container>
+      <h1>Album Details page, successfully deployed</h1>
       <h1>Album: {album.title}</h1>
       <Row>
         {album.photos.data
