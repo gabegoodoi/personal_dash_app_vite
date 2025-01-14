@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import Location from '../Components/Location/Location.tsx';
 import '@testing-library/jest-dom';
 
-
 test('renders the location name when data is fetched', async () => {
     render(<Location />);
 
@@ -14,4 +13,3 @@ test('renders the location name when data is fetched', async () => {
     const locationText = await screen.findByText('Location: New York City');
     expect(locationText).toBeInTheDocument();
 });
-
