@@ -62,7 +62,7 @@ jobs:
         run: netlify login
       - name: Link Netlify Site
         run: |
-          site_id=$(netlify sites:list --json | jq -r '.sites[0].id') 
+          site_id=$(netlify sites:list --json | jq -r '.sites[].id') 
           netlify link --site $site_id
       - name: Pull Netlify Environment Information
         run: netlify status env main
