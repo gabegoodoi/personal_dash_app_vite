@@ -61,6 +61,8 @@ jobs:
       - name: Pull Netlify Environment Information
         run: netlify status env main
       - name: Build Project Artifacts
-        run: netlify build --token=${{ secrets.NETLIFY_TOKEN }}
+        run: netlify build
       - name: Deploy Project Artifacts to Netlify
-        run: netlify deploy --prebuilt --token=${{ secrets.NETLIFY_TOKEN }}
+        run: netlify deploy
+
+        
