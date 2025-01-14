@@ -59,7 +59,7 @@ jobs:
       - name: install Netlify CLI
         run: npm install -g netlify-cli
       - name: Pull Netlify Environment Information
-        run: netlify pull --environment main --token=${{ secrets.NETLIFY_TOKEN }}
+        run: netlify status env main
       - name: Build Project Artifacts
         run: netlify build --token=${{ secrets.NETLIFY_TOKEN }}
       - name: Deploy Project Artifacts to Netlify
