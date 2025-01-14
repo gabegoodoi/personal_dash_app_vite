@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Location from '../Components/Location/Location.tsx';
 import '@testing-library/jest-dom';
