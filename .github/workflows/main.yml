@@ -60,8 +60,10 @@ jobs:
         run: npm install -g netlify-cli
       - name: Login to Netlify
         run: netlify login
-      - name: Link to Netlify
-        run: netlify link
+      - name: Link Netlify Site
+        run: |
+          site_id=$(netlify sites:list --json | jq -r '.sites[0].id') 
+          netlify link --site $site_id
       - name: Pull Netlify Environment Information
         run: netlify status env main
       - name: Build Project Artifacts
