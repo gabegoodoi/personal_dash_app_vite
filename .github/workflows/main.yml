@@ -59,6 +59,7 @@ jobs:
       - name: install Netlify CLI
         run: npm install -g netlify-cli
       - name: Pull Netlify Environment Information
+        run: netlify login
         run: netlify status env main
       - name: Build Project Artifacts
         run: netlify build --site fd3790f8-f973-4e0c-b896-94733f901cc0
