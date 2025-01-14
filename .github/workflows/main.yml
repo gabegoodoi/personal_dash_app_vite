@@ -44,8 +44,7 @@ jobs:
         run: npm install
   
       - name: Run Tests
-        run: npm test
-
+        run: npm test 
   deploy:
     needs: test
     runs-on: ubuntu-latest
@@ -60,7 +59,7 @@ jobs:
       - name: install Netlify CLI
         run: npm install -g netlify-cli
       - name: Pull Netlify Environment Information
-        run: netlify pull --environment-preview --token=${{ secrets.NETLIFY_TOKEN }}
+        run: netlify pull --environment=main --token=${{ secrets.NETLIFY_TOKEN }}
       - name: Build Project Artifacts
         run: netlify build --token=${{ secrets.NETLIFY_TOKEN }}
       - name: Deploy Project Artifacts to Netlify
