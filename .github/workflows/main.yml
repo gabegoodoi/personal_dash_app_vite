@@ -60,6 +60,8 @@ jobs:
         run: npm install -g netlify-cli
       - name: Login to Netlify
         run: netlify login
+      - name: Link to Netlify
+        run: netlify link
       - name: Pull Netlify Environment Information
         run: netlify status env main
       - name: Build Project Artifacts
