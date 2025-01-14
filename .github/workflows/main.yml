@@ -63,6 +63,6 @@ jobs:
       - name: Build Project Artifacts
         run: netlify build
       - name: Deploy Project Artifacts to Netlify
-        run: netlify deploy
+        run: netlify deploy --site fd3790f8-f973-4e0c-b896-94733f901cc0
 
         
