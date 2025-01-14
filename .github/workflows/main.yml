@@ -61,9 +61,7 @@ jobs:
       - name: Login to Netlify
         run: netlify login
       - name: Link Netlify Site
-        run: |
-          site_id=$(netlify sites:list --json | jq -r '.sites[].id') 
-          netlify link --site $site_id
+        run: netlify link --id $"secrets.NETLIFY_SITE_ID"
       - name: Pull Netlify Environment Information
         run: netlify status env main
       - name: Build Project Artifacts
